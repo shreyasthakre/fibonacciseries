@@ -1,0 +1,18 @@
+Example: JavaScript Promise chaining catch() after then() method
+<html>
+<head>
+    <title>JavaScript Promise chaining catch() after then() method example</title>
+</head>
+<body>
+    <script>
+        const p = new Promise(
+            reject => {
+                throw 'oh no error occured'
+            }
+        );
+        p.catch(() => Promise.reject('oh yes'))
+            .then(console.log.bind(console)) // won't be called
+            .catch(console.error.bind(console)); // outputs "oh yes"
+    </script>
+</body>
+</html>
